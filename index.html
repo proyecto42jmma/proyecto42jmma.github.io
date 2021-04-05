@@ -1,0 +1,90 @@
+<! DOCTYPE html >
+< html  lang = " es " >
+< cabeza >
+  < meta  charset = " UTF-8 " >
+  < meta  name = " viewport "
+    content = " width = device-width,
+       escala-inicial = 1.0 " >
+  < título > Sesión </ título >
+  <! -
+    Carga el núcleo de Firebase
+    SDK de JS
+  ->
+  < guión
+    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js " >
+    </ script >
+  <! -
+    Agrega el manejo de
+    autenticación.
+  ->
+  < guión
+    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js " >
+    </ script >
+  <! -
+    Agrega el manejo de bases de
+    datos.
+  ->
+  < guión
+    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js " >
+    </ script >
+  <! -
+    Configura la app usando la
+    información del sitio de
+    Firebase.
+  ->
+  < script  src = " js / init.js " >
+  </ script >
+  < tipo de script  = " módulo "
+    src = " cmp / mi-nav.js " >
+    </ script >
+  < tipo de script  = " módulo "
+    src = " cmp / mi-footer.js " >
+    </ script >
+  < tipo de script  = " módulo "
+    src = " cmp / mi-progreso.js " >
+    </ script >
+  < link  rel = " hoja de estilo "
+    href = " css / estilos.css " >
+</ cabeza >
+< cuerpo >
+ < formulario  nombre = " forma " >
+    < mi-nav > </ mi-nav >
+    < encabezado >
+      < h1 > Sesión </ h1 >
+      < div  class = " herramientas " >
+        < botón
+          type = " botón "
+          name = " terminarSesión " >
+          Sesión Terminar
+        </ botón >
+      </ div >
+    </ encabezado >
+    < figura >
+      < img  id = " avatar " src = ""
+        alt = " Avatar " >
+    </ figura >
+    < p >
+      < etiqueta >
+        Correo electrónico
+        < nombre de salida  = " correo electrónico " >
+          < mi-progreso >
+          </ mi-progreso >
+        </ salida >
+      </ etiqueta >
+    </ p >
+    < p >
+      < etiqueta >
+        Nombre
+        < nombre de salida  = " nombre " >
+          < mi-progreso >
+          </ mi-progreso >
+        </ salida >
+      </ etiqueta >
+    </ p >
+    < mi-pie de página > </ mi-pie de página >
+  </ formulario >
+  < tipo de script  = " módulo "
+    src = " js / CtrlSesion.js " >
+    </ script >
+</ cuerpo >
+</ html >
