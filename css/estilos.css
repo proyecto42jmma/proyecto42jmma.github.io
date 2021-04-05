@@ -1,0 +1,62 @@
+@import "mi-nav.css";
+@import "mi-footer.css";
+@import "listas.css";
+
+:raíz {
+  font-family: sans-serif;
+  --col-activo:  #4646462c;
+  --color-header: blanco;
+  --colorMiNav: blanco;
+}
+
+cuerpo {
+  ancho máximo: 640px ;
+  margen: 0 auto;
+  relleno: 0,5rem ;
+}
+
+Rúbrica {
+  posición: -webkit-sticky;
+  posición: pegajosa;
+  arriba: 0;
+  color de fondo:
+    var(--color-header);
+}
+
+. herramientas {
+  pantalla: flexión;
+  flex-flow: envoltura;
+  align-items: centro;
+  align-content: flex-end;
+  just-content: flex-end;
+  margen superior: 0,5rem ;
+  fondo de relleno: 0,5rem ;
+  brecha: 0,5rem ;
+}
+
+entrada del encabezado  {
+  flex-grow: 1;
+}
+
+h1 {
+  margen: 0,5rem  0;
+}
+
+figura img {
+  ancho máximo: 100% ;
+}
+
+leyenda,
+etiqueta p  {
+  pantalla: bloque;
+  font-weight: negrita;
+  tamaño de la fuente: 0,7rem ;
+}
+
+etiqueta p >* {
+  pantalla: bloque;
+  font-weight: normal;
+  tamaño de la fuente: 1rem ;
+  tamaño de la caja: caja de bordes;
+  ancho: 100% ;
+}
