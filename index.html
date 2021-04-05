@@ -1,90 +1,90 @@
-<! DOCTYPE html >
-< html  lang = " es " >
-< cabeza >
-  < meta  charset = " UTF-8 " >
-  < meta  name = " viewport "
-    content = " width = device-width,
-       escala-inicial = 1.0 " >
-  < título > Sesión </ título >
-  <! -
-    Carga el núcleo de Firebase
-    SDK de JS
-  ->
-  < guión
-    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js " >
-    </ script >
-  <! -
-    Agrega el manejo de
-    autenticación.
-  ->
-  < guión
-    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js " >
-    </ script >
-  <! -
-    Agrega el manejo de bases de
-    datos.
-  ->
-  < guión
-    src = " https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js " >
-    </ script >
-  <! -
-    Configura la app usando la
+<! DOCTYPE html>
+<html lang="es">
+<cabeza>
+  <meta charset="UTF-8">
+  <meta nombre="ventana gráfica"
+    contenido="width=device-width,
+ escala inicial=1,0">
+  <título>Sesión</título>
+  <!--
+ Carga el núcleo de bomberos
+    JS SDK
+  -->
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
+    </Guión>
+  <!--
+ Agregan el manejo de
+ Autenticación.
+  -->
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js">
+    </Guión>
+  <!--
+ Agregan el manejo de las bases de
+ Datos.
+  -->
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js">
+    </Guión>
+  <!--
+ Configura la aplicación usando la
     información del sitio de
-    Firebase.
-  ->
-  < script  src = " js / init.js " >
-  </ script >
-  < tipo de script  = " módulo "
-    src = " cmp / mi-nav.js " >
-    </ script >
-  < tipo de script  = " módulo "
-    src = " cmp / mi-footer.js " >
-    </ script >
-  < tipo de script  = " módulo "
-    src = " cmp / mi-progreso.js " >
-    </ script >
-  < link  rel = " hoja de estilo "
-    href = " css / estilos.css " >
-</ cabeza >
-< cuerpo >
- < formulario  nombre = " forma " >
-    < mi-nav > </ mi-nav >
-    < encabezado >
-      < h1 > Sesión </ h1 >
-      < div  class = " herramientas " >
-        < botón
-          type = " botón "
-          name = " terminarSesión " >
-          Sesión Terminar
-        </ botón >
-      </ div >
-    </ encabezado >
-    < figura >
-      < img  id = " avatar " src = ""
-        alt = " Avatar " >
-    </ figura >
-    < p >
-      < etiqueta >
-        Correo electrónico
-        < nombre de salida  = " correo electrónico " >
-          < mi-progreso >
-          </ mi-progreso >
-        </ salida >
-      </ etiqueta >
-    </ p >
-    < p >
-      < etiqueta >
+ Base de fuego.
+  -->
+  <script src="js/init.js">
+  </Guión>
+  < tipo descript ="módulo"
+    src="cmp/mi-nav.js">
+    </Guión>
+  < tipo descript ="módulo"
+    src="cmp/mi-footer.js">
+    </Guión>
+  < tipo descript ="módulo"
+    src="cmp/mi-progreso.js">
+    </Guión>
+  <enlace rel="hoja de estilo"
+    href="css/estilos.css">
+</cabeza>
+<cuerpo>
+ < nombre delformulario ="forma">
+    <mi-nav></mi-nav>
+    <Rúbrica>
+      <h1>Sesión</h1>
+      <clase div ="herramientas">
+        <botón
+          tipo="botón"
+          nombre="terminarSesión">
+          Terminar Sesión
+        </botón>
+      </Div>
+    </Rúbrica>
+    <figura>
+      <img id="avatar" src=""
+        alt="Avatar">
+    </figura>
+    <p>
+      <etiqueta>
+ Correo electrónico
+        < nombre desalida ="correo electrónico">
+          <mi-progreso>
+          </mi-progreso>
+        </salida>
+      </etiqueta>
+    </p>
+    <p>
+      <etiqueta>
         Nombre
-        < nombre de salida  = " nombre " >
-          < mi-progreso >
-          </ mi-progreso >
-        </ salida >
-      </ etiqueta >
-    </ p >
-    < mi-pie de página > </ mi-pie de página >
-  </ formulario >
-  < tipo de script  = " módulo "
-    src = " js / CtrlSesion.js " >
-    </ script >
-</ cuerpo >
-</ html >
+        < nombrede salida ="nombre">
+          <mi-progreso>
+          </mi-progreso>
+        </salida>
+      </etiqueta>
+    </p>
+    <mi-pie de página></mi-pie de página>
+  </forma>
+  < tipo descript ="módulo"
+    src="js/CtrlSesion.js">
+    </Guión>
+</cuerpo>
+</HTML>
