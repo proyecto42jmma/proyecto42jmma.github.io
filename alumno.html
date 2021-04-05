@@ -1,0 +1,84 @@
+<! DOCTYPE html>
+<html lang="es">
+<cabeza>
+  <meta charset="UTF-8">
+  <meta nombre="ventana gráfica"
+    contenido="width=device-width,
+ escala inicial=1,0">
+  <título>Alumno</título>
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
+    </Guión>
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js">
+    </Guión>
+  <Guión
+    src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js">
+    </Guión>
+  <script src="js/init.js">
+  </Guión>
+  < tipo descript ="módulo"
+    src="cmp/mi-nav.js">
+    </Guión>
+  < tipo descript ="módulo"
+    src="cmp/mi-footer.js">
+    </Guión>
+  <enlace rel="hoja de estilo"
+    href="css/estilos.css">
+</cabeza>
+<cuerpo>
+  < nombre delformulario ="forma">
+    <mi-nav></mi-nav>
+    <Rúbrica>
+      <h1>Alumno</h1>
+      <clase div ="herramientas">
+        <a href="alumnos.html">
+          Cancelar</a>
+        <botón>Guardar</botón>
+        <nombre del botón ="eliminar"
+          tipo="botón">
+ Eliminación
+        </botón>
+      </Div>
+    </Rúbrica>
+    <p>
+      <etiqueta>
+ Matrícula
+        < nombrede entrada ="matricular"
+          tipo="texto" requerido>
+      </etiqueta>
+    </p>
+    <p>
+      <etiqueta>
+        Nombre
+        < nombrede entrada ="nombre"
+          tipo="texto" requerido>
+      </etiqueta>
+    </p>
+    <p>
+      <etiqueta>
+        Teléfono
+        < nombrede entrada ="telefono"
+          tipo="texto" requerido>
+      </etiqueta>
+    </p>
+    <p>
+      <etiqueta>
+        Grupo
+        < nombrede entrada ="grupo"
+          tipo="texto" requerido>
+      </etiqueta>
+    </p>
+    <p>
+      <etiqueta>
+        Fecha
+        < nombrede entrada ="fecha" tipo="fecha" requerido>
+      </etiqueta>
+    </p>
+    <mi-pie de página></mi-pie de página>
+  </forma>
+  < tipo descript ="módulo"
+    src="js/CtrlAlumno.js">
+    </Guión>
+</cuerpo>
+</HTML>
