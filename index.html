@@ -1,90 +1,90 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<cabeza>
+<head>
   <meta charset="UTF-8">
-  <meta nombre="ventana gráfica"
-    contenido="width=device-width,
- escala inicial=1,0">
-  <título>Sesión</título>
+  <meta name="viewport"
+    content="width=device-width,
+       initial-scale=1.0">
+  <title>Sesión</title>
   <!--
- Carga el núcleo de bomberos
+    Carga el núcleo de Firebase
     JS SDK
   -->
-  <Guión
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
-    </Guión>
+    </script>
   <!--
- Agregan el manejo de
- Autenticación.
+    Agrega el manejo de
+    autenticación.
   -->
-  <Guión
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js">
-    </Guión>
+    </script>
   <!--
- Agregan el manejo de las bases de
- Datos.
+    Agrega el manejo de bases de
+    datos.
   -->
-  <Guión
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js">
-    </Guión>
+    </script>
   <!--
- Configura la aplicación usando la
+    Configura la app usando la
     información del sitio de
- Base de fuego.
+    Firebase.
   -->
   <script src="js/init.js">
-  </Guión>
-  < tipo descript ="módulo"
+  </script>
+  <script type="module"
     src="cmp/mi-nav.js">
-    </Guión>
-  < tipo descript ="módulo"
+    </script>
+  <script type="module"
     src="cmp/mi-footer.js">
-    </Guión>
-  < tipo descript ="módulo"
+    </script>
+  <script type="module"
     src="cmp/mi-progreso.js">
-    </Guión>
-  <enlace rel="hoja de estilo"
+    </script>
+  <link rel="stylesheet"
     href="css/estilos.css">
-</cabeza>
-<cuerpo>
- < nombre delformulario ="forma">
+</head>
+<body>
+ <form name="forma">
     <mi-nav></mi-nav>
-    <Rúbrica>
+    <header>
       <h1>Sesión</h1>
-      <clase div ="herramientas">
-        <botón
-          tipo="botón"
-          nombre="terminarSesión">
+      <div class="herramientas">
+        <button
+          type="button"
+          name="terminarSesión">
           Terminar Sesión
-        </botón>
-      </Div>
-    </Rúbrica>
-    <figura>
+        </button>
+      </div>
+    </header>
+    <figure>
       <img id="avatar" src=""
         alt="Avatar">
-    </figura>
+    </figure>
     <p>
-      <etiqueta>
- Correo electrónico
-        < nombre desalida ="correo electrónico">
+      <label>
+        Email
+        <output name="email">
           <mi-progreso>
           </mi-progreso>
-        </salida>
-      </etiqueta>
+        </output>
+      </label>
     </p>
     <p>
-      <etiqueta>
+      <label>
         Nombre
-        < nombrede salida ="nombre">
+        <output name="nombre">
           <mi-progreso>
           </mi-progreso>
-        </salida>
-      </etiqueta>
+        </output>
+      </label>
     </p>
-    <mi-pie de página></mi-pie de página>
-  </forma>
-  < tipo descript ="módulo"
+    <mi-footer></mi-footer>
+  </form>
+  <script type="module"
     src="js/CtrlSesion.js">
-    </Guión>
-</cuerpo>
+    </script>
+</body>
 </html>
