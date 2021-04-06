@@ -1,84 +1,84 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<cabeza>
+<head>
   <meta charset="UTF-8">
-  <meta nombre="ventana gráfica"
-    contenido="width=device-width,
- escala inicial=1,0">
-  <título>Alumno</título>
-  <Guión
+  <meta name="viewport"
+    content="width=device-width,
+       initial-scale=1.0">
+  <title>Alumno</title>
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
-    </Guión>
-  <Guión
+    </script>
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js">
-    </Guión>
-  <Guión
+    </script>
+  <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js">
-    </Guión>
+    </script>
   <script src="js/init.js">
-  </Guión>
-  < tipo descript ="módulo"
+  </script>
+  <script type="module"
     src="cmp/mi-nav.js">
-    </Guión>
-  < tipo descript ="módulo"
+    </script>
+  <script type="module"
     src="cmp/mi-footer.js">
-    </Guión>
-  <enlace rel="hoja de estilo"
+    </script>
+  <link rel="stylesheet"
     href="css/estilos.css">
-</cabeza>
-<cuerpo>
-  < nombre delformulario ="forma">
+</head>
+<body>
+  <form name="forma">
     <mi-nav></mi-nav>
-    <Rúbrica>
+    <header>
       <h1>Alumno</h1>
-      <clase div ="herramientas">
+      <div class="herramientas">
         <a href="alumnos.html">
           Cancelar</a>
-        <botón>Guardar</botón>
-        <nombre del botón ="eliminar"
-          tipo="botón">
- Eliminación
-        </botón>
-      </Div>
-    </Rúbrica>
+        <button>Guardar</button>
+        <button name="eliminar"
+          type="button">
+          Eliminar
+        </button>
+      </div>
+    </header>
     <p>
-      <etiqueta>
- Matrícula
-        < nombrede entrada ="matricular"
-          tipo="texto" requerido>
-      </etiqueta>
+      <label>
+        Matricula
+        <input name="matricula"
+          type="text" required>
+      </label>
     </p>
     <p>
-      <etiqueta>
+      <label>
         Nombre
-        < nombrede entrada ="nombre"
-          tipo="texto" requerido>
-      </etiqueta>
+        <input name="nombre"
+          type="text" required>
+      </label>
     </p>
     <p>
-      <etiqueta>
+      <label>
         Teléfono
-        < nombrede entrada ="telefono"
-          tipo="texto" requerido>
-      </etiqueta>
+        <input name="telefono"
+          type="text" required>
+      </label>
     </p>
     <p>
-      <etiqueta>
+      <label>
         Grupo
-        < nombrede entrada ="grupo"
-          tipo="texto" requerido>
-      </etiqueta>
+        <input name="grupo"
+          type="text" required>
+      </label>
     </p>
     <p>
-      <etiqueta>
+      <label>
         Fecha
-        < nombrede entrada ="fecha" tipo="fecha" requerido>
-      </etiqueta>
+        <input name="fecha" type="date" required>
+      </label>
     </p>
-    <mi-pie de página></mi-pie de página>
-  </forma>
-  < tipo descript ="módulo"
+    <mi-footer></mi-footer>
+  </form>
+  <script type="module"
     src="js/CtrlAlumno.js">
-    </Guión>
-</cuerpo>
-</HTML>
+    </script>
+</body>
+</html>
