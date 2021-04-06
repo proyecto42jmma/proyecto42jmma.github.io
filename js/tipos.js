@@ -1,25 +1,25 @@
 /**
- * @typedef {Objeto} Rol
- * @property {cadena} descripción
+ * @typedef {Object} Rol
+ * @property {string} descripción
  */
 
 /**
- * @typedef {Objeto} Alumno
- * @property {cadena} nombre
+ * @typedef {Object} Alumno
+ * @property {string} nombre
  */
 
 /**
- * @typedef {Objeto} Usuario
+ * @typedef {Object} Usuario
  * @property {string[]} rolIds
  * @property {string} alumnoId
  */
 
-// @ts-sin control
+// @ts-nocheck
 /**
- * @typedef {Objeto} Mensaje
+ * @typedef {Object} Mensaje
  * @property {string} usuarioId
  * @property {string} texto
- * @property {firebase.firestore.Timestamp} marca de tiempo
+ * @property {firebase.firestore.Timestamp} timestamp
  */
 
-exportación const __tipos = 0;
+export const __tipos = 0;
