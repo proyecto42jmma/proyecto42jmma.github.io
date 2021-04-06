@@ -15,50 +15,50 @@ import {
 
 const daoAlumno =
   getFirestore().
-    colección("Alumno");
+    collection("Alumno");
 /** @type {HTMLFormElement} */
-const forma = documento["forma"];
-getAuth(). onAuthStateChanged(
-  protegido, muestraError);
+const forma = document["forma"];
+getAuth().onAuthStateChanged(
+  protege, muestraError);
 
-/** @param {importación(
- ".. /lib/tiposFire.js"). Usuario}
+/** @param {import(
+    "../lib/tiposFire.js").User}
     usuario */
- async function protégé(usuario) {
+async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
-    forma. addEventListener(
-      "someterse", guarda);
+    forma.addEventListener(
+      "submit", guarda);
   }
 }
 
-/** @param {Evento} evt */
-función asincrónica guarda(evt) {
-  probar {
-    evt. prevenirDefault();
+/** @param {Event} evt */
+async function guarda(evt) {
+  try {
+    evt.preventDefault();
     const formData =
-      nuevo FormData(forma);
+      new FormData(forma);
     const matricula = getString(
-        formData, "matricula"). recorte();  
-    const nombre = getString(formData, "nombre"). recorte();
-    const telefono = getString(formData, "telefono"). recorte();
-    grupo const  = getString(formData, "grupo"). recorte();
-    const fecha = getString(formData, "fecha"). recorte();
+        formData, "matricula").trim();  
+    const nombre = getString(formData, "nombre").trim();
+    const telefono = getString(formData, "telefono").trim();
+    const grupo = getString(formData, "grupo").trim();
+    const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
         import("./tipos.js").
                 Alumno} */
     const modelo = {
- matricular,
+      matricula,
       nombre,
- telefono,
+      telefono,
       grupo,
       fecha 
     };
-    esperar daoAlumno.
-      añadir(modelo);
+    await daoAlumno.
+      add(modelo);
     muestraAlumnos();
-  } captura (e) {
+  } catch (e) {
     muestraError(e);
   }
 }
