@@ -1,103 +1,103 @@
-importación {
+import {
   getFirestore
-} de ".. /lib/fabrica.js";
-importación {
+} from "../lib/fabrica.js";
+import {
   subeStorage
-} de ".. /lib/storage.js";
-importación {
-  bacalao, getForánea, muestraError
-} de ".. /lib/util.js";
-importación {
+} from "../lib/storage.js";
+import {
+  cod, getForánea, muestraError
+} from "../lib/util.js";
+import {
   muestraUsuarios
-} de "./navegacion.js";
+} from "./navegacion.js";
 
 const SIN_ALUMNOS = /* html */
-  '<valor de opción=">
- - Sin Alumnos --
- </option>';
+  `<option value="">
+    -- Sin Alumnos --
+  </option>`;
 
 const firestore = getFirestore();
-const daoRol = almacén de bomberos.
-  colección("Rol");
+const daoRol = firestore.
+  collection("Rol");
 const daoAlumno = firestore.
-  colección("Alumno");
+  collection("Alumno");
 const daoUsuario = firestore.
-  colección("Usuario");
+  collection("Usuario");
 
 /**
  * @param {
-HTMLSelectElement} escoger
+    HTMLSelectElement} select
  * @param {string} valor */
- función de exportación
-  selectAlumnos(seleccione,
+export function
+  selectAlumnos(select,
     valor) {
   valor = valor || "";
   daoAlumno.
-    ordenBy("nombre").
+    orderBy("nombre").
     onSnapshot(
-      chasquear => {
+      snap => {
         let html = SIN_ALUMNOS;
-        snap. forEach(doc =>
+        snap.forEach(doc =>
           html += htmlAlumno(
             doc, valor));
-        seleccione. innerHTML = html;
+        select.innerHTML = html;
       },
-      E => {
+      e => {
         muestraError(e);
         selectAlumnos(
-          seleccionar, valor);
+          select, valor);
       }
     );
 }
 
 /**
  * @param {
- import(".. /lib/tiposFire.js").
- DocumentoSnapshot} doc
+  import("../lib/tiposFire.js").
+  DocumentSnapshot} doc
  * @param {string} valor */
-función
+function
   htmlAlumno(doc, valor) {
-  const seleccionado =
-    doc. id === valor ?
-      "seleccionado": "";
+  const selected =
+    doc.id === valor ?
+      "selected" : "";
   /**
    * @type {import("./tipos.js").
                   Alumno} */
-  const datos = doc. datos();
-  retorno (/* html */
-    '<opción
- value="${cod(doc. id)} "
-        ${seleccionado}>
-      ${bacalao(datos. nombre)}
- </option>');
+  const data = doc.data();
+  return (/* html */
+    `<option
+        value="${cod(doc.id)}"
+        ${selected}>
+      ${cod(data.nombre)}
+    </option>`);
 }
 
 /**
  * @param {HTMLElement} elemento
  * @param {string[]} valor */
- función de exportación
-  chequesRoles(elemento, valor ) {
-  conjunto de const  =
-    nuevo conjunto(valor || []);
-  daoRol. onSnapshot(
-    chasquear => {
-      dejar html = "";
-      if (ajustar. tamaño > 0) {
-        snap. forEach(doc =>
-          HTML +=
-          checkRol(doc, establecer));
-      } más {
+export function
+  checksRoles(elemento, valor) {
+  const set =
+    new Set(valor || []);
+  daoRol.onSnapshot(
+    snap => {
+      let html = "";
+      if (snap.size > 0) {
+        snap.forEach(doc =>
+          html +=
+          checkRol(doc, set));
+      } else {
         html += /* html */
-          '<li class="vacio">
- -- Sin papeles de heno
- Registradores. --
- </li>';
+          `<li class="vacio">
+              -- No hay roles
+              registrados. --
+            </li>`;
       }
-      elemento. innerHTML = html;
+      elemento.innerHTML = html;
     },
-    E => {
+    e => {
       muestraError(e);
-      chequesRoles(
+      checksRoles(
         elemento, valor);
     }
   );
@@ -105,64 +105,64 @@ función
 
 /**
  * @param {
- import(".. /lib/tiposFire.js").
- DocumentoSnapshot} doc
+    import("../lib/tiposFire.js").
+    DocumentSnapshot} doc
  * @param {Set<string>} set */
- función de exportación
-  checkRol(doc, establecer) {
+export function
+  checkRol(doc, set) {
   /**
    * @type {
- import("./tipos.js"). Rol} */
-  const datos = doc. datos();
-  const comprobado =
-    conjunto. tiene(doc. id) ?
-      "comprobado": "";
-  retorno (/* html */
-    '<li>
+      import("./tipos.js").Rol} */
+  const data = doc.data();
+  const checked =
+    set.has(doc.id) ?
+      "checked" : "";
+  return (/* html */
+    `<li>
       <label class="fila">
- <tipo de entrada="casilla de verificación"
+        <input type="checkbox"
             name="rolIds"
- value="${cod(doc. id)} "
-          ${Comprobado}>
+            value="${cod(doc.id)}"
+          ${checked}>
         <span class="texto">
- <fuerte
+          <strong
               class="primario">
-            ${bacalao(doc. id)}
- </fuerte>
+            ${cod(doc.id)}
+          </strong>
           <span
               class="secundario">
-          ${bacalao(datos. Descripción)}
+          ${cod(data.descripción)}
           </span>
         </span>
- </etiqueta>
- </li>');
+      </label>
+    </li>`);
 }
 
 /**
- * @param {Evento} evt
+ * @param {Event} evt
  * @param {FormData} formData
  * @param {string} id  */
-exportar función asincrónica
+export async function
   guardaUsuario(evt, formData,
-    identificación) {
-  probar {
-    evt. prevenirDefault();
+    id) {
+  try {
+    evt.preventDefault();
     const alumnoId =
       getForánea(formData,
-        "AlumnoId");
+        "alumnoId");
     const rolIds =
-      formData. getAll("rolIds");
-    esperar daoUsuario.
+      formData.getAll("rolIds");
+    await daoUsuario.
       doc(id).
-      poner({
+      set({
         alumnoId,
         rolIds
       });
-    avatar de const =
-      formData. obtener("avatar");
-    esperar subeStorage(id, avatar);
+    const avatar =
+      formData.get("avatar");
+    await subeStorage(id, avatar);
     muestraUsuarios();
-  } captura (e) {
+  } catch (e) {
     muestraError(e);
   }
 }
