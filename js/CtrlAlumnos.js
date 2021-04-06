@@ -1,117 +1,94 @@
-importación {
+import {
   getAuth,
   getFirestore
-} de ".. /lib/fabrica.js";
-importación {
-  getString,
+} from "../lib/fabrica.js";
+import {
+  cod,
   muestraError
-} de ".. /lib/util.js";
-importación {
-  muestraAlumnos
-} de "./navegacion.js";
-importación {
-  TieneRol
-} de "./seguridad.js";
+} from "../lib/util.js";
+import {
+  tieneRol
+} from "./seguridad.js";
 
+/** @type {HTMLUListElement} */
+const lista = document.
+  querySelector("#lista");
 const daoAlumno =
   getFirestore().
-    colección("Alumno");
-params const  =
-  nueva URL(ubicación. href).
-    searchParams;
-const id = params. obtener("id");
-/** @type {HTMLFormElement} */
-const forma = documento["forma"];
+    collection("Alumno");
 
-getAuth(). onAuthStateChanged(
-  protegido, muestraError);
+getAuth().
+  onAuthStateChanged(
+    protege, muestraError);
 
-/** @param {importación(
- ".. /lib/tiposFire.js"). Usuario}
+/** @param {import(
+    "../lib/tiposFire.js").User}
     usuario */
- async function protégé(usuario) {
+async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
-    busca();
+    consulta();
   }
 }
 
-/** Busca y muestra los datos que
- * corresponden al id recibido. */
-función asincrónica busca() {
-  probar {
-    const doc =
-      esperar daoAlumno.
-        doc(id).
-        Obtener();
-    if (doc. existe) {
-      /**
-       * @type {
-          import("./tipos.js").
+function consulta() {
+  daoAlumno.
+    orderBy("nombre")
+    .onSnapshot(
+      htmlLista, errConsulta);
+}
+
+/**
+ * @param {import(
+    "../lib/tiposFire.js").
+    QuerySnapshot} snap */
+function htmlLista(snap) {
+  let html = "";
+  if (snap.size > 0) {
+    snap.forEach(doc =>
+      html += htmlFila(doc));
+  } else {
+    html += /* html */
+      `<li class="vacio">
+        -- No hay alumnos
+        registrados. --
+      </li>`;
+  }
+  lista.innerHTML = html;
+}
+
+/**
+ * @param {import(
+    "../lib/tiposFire.js").
+    DocumentSnapshot} doc */
+function htmlFila(doc) {
+  /**
+   * @type {import("./tipos.js").
                   Alumno} */
-      const datos = doc. datos();
-      forma. matricular. valor = datos. matriculación;
-      forma. nombre. valor = datos. nombre || "";
-      forma. telefono. valor = datos. telefono || "";
-      forma. grupo. valor = datos. grupo || "";
-      forma. fecha. valor = datos. fecha || "";
-      forma. addEventListener(
-        "someterse", guarda);
-      forma. eliminar.
-        addEventListener(
-          "clic", eliminación);
-    } más {
-      lanzar nuevo error(
-        "No se encontró.");
-    }
-  } captura (e) {
-    muestraError(e);
-    muestraAlumnos();
-  }
+  const data = doc.data();
+  const matricula = cod(data.matricula);
+  const nombre = cod(data.nombre);
+  var fsf= cod(data.fecha);
+  var fecha = new Date(fsf);
+  var espacio="[   -   ]";
+  var dformat = [fecha.getDate()+1, fecha.getMonth()+1, fecha.getFullYear()].join('/');
+  const parámetros =
+    new URLSearchParams();
+  parámetros.append("id", doc.id);
+  return ( /* html */
+    `<li>
+      <a class="fila" href=
+  "alumno.html?${parámetros}">
+        <strong class="primario">
+          ${matricula} ${nombre} ${dformat}
+        </strong>
+      </a>
+     
+    </li>`);
 }
 
-/** @param {Evento} evt */
-función asincrónica guarda(evt) {
-  probar {
-    evt. prevenirDefault();
-    const formData =
-      nuevo FormData(forma);
-    const matricula = getString(
-        formData, "matricula"). recorte();  
-    const nombre = getString(formData, "nombre"). recorte();
-    const telefono = getString(formData, "telefono"). recorte();
-    grupo const  = getString(formData, "grupo"). recorte();
-    const fecha = getString(formData, "fecha"). recorte();
-    /**
-     * @type {
-        import("./tipos.js").
-                Alumno} */
-    const modelo = {
- matricular, 
-      nombre,
- telefono,
-      grupo,
-      fecha
-    };
-    esperar daoAlumno.
-      doc(id).
-      set(modelo);
-    muestraAlumnos();
-  } captura (e) {
-    muestraError(e);
-  }
-}
-
-eliminación de la función asincrónica () {
-  probar {
-    if (confirmar("Confirmar la" +
-      "Eliminación")) {
-      esperar daoAlumno.
-        doc(id).
-        Eliminar();
-      muestraAlumnos();
-    }
-  } captura (e) {
-    muestraError(e);
-  }
+/** @param {Error} e */
+function errConsulta(e) {
+  muestraError(e);
+  consulta();
 }
