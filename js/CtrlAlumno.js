@@ -1,35 +1,35 @@
-importación {
+import {
   getAuth,
   getFirestore
-} de ".. /lib/fabrica.js";
-importación {
+} from "../lib/fabrica.js";
+import {
   getString,
   muestraError
-} de ".. /lib/util.js";
-importación {
+} from "../lib/util.js";
+import {
   muestraAlumnos
-} de "./navegacion.js";
-importación {
-  TieneRol
-} de "./seguridad.js";
+} from "./navegacion.js";
+import {
+  tieneRol
+} from "./seguridad.js";
 
 const daoAlumno =
   getFirestore().
-    colección("Alumno");
-params const  =
-  nueva URL(ubicación. href).
+    collection("Alumno");
+const params =
+  new URL(location.href).
     searchParams;
-const id = params. obtener("id");
+const id = params.get("id");
 /** @type {HTMLFormElement} */
-const forma = documento["forma"];
+const forma = document["forma"];
 
-getAuth(). onAuthStateChanged(
-  protegido, muestraError);
+getAuth().onAuthStateChanged(
+  protege, muestraError);
 
-/** @param {importación(
- ".. /lib/tiposFire.js"). Usuario}
+/** @param {import(
+    "../lib/tiposFire.js").User}
     usuario */
- async function protégé(usuario) {
+async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
     busca();
@@ -38,80 +38,80 @@ getAuth(). onAuthStateChanged(
 
 /** Busca y muestra los datos que
  * corresponden al id recibido. */
-función asincrónica busca() {
-  probar {
+async function busca() {
+  try {
     const doc =
-      esperar daoAlumno.
+      await daoAlumno.
         doc(id).
-        Obtener();
-    if (doc. existe) {
+        get();
+    if (doc.exists) {
       /**
        * @type {
           import("./tipos.js").
                   Alumno} */
-      const datos = doc. datos();
-      forma. matricular. valor = datos. matriculación;
-      forma. nombre. valor = datos. nombre || "";
-      forma. telefono. valor = datos. telefono || "";
-      forma. grupo. valor = datos. grupo || "";
-      forma. fecha. valor = datos. fecha || "";
-      forma. addEventListener(
-        "someterse", guarda);
-      forma. eliminar.
+      const data = doc.data();
+      forma.matricula.value = data.matricula;
+      forma.nombre.value = data.nombre || "";
+      forma.telefono.value = data.telefono || "";
+      forma.grupo.value = data.grupo || "";
+      forma.fecha.value = data.fecha || "";
+      forma.addEventListener(
+        "submit", guarda);
+      forma.eliminar.
         addEventListener(
-          "clic", eliminación);
-    } más {
-      lanzar nuevo error(
+          "click", elimina);
+    } else {
+      throw new Error(
         "No se encontró.");
     }
-  } captura (e) {
+  } catch (e) {
     muestraError(e);
     muestraAlumnos();
   }
 }
 
-/** @param {Evento} evt */
-función asincrónica guarda(evt) {
-  probar {
-    evt. prevenirDefault();
+/** @param {Event} evt */
+async function guarda(evt) {
+  try {
+    evt.preventDefault();
     const formData =
-      nuevo FormData(forma);
+      new FormData(forma);
     const matricula = getString(
-        formData, "matricula"). recorte();  
-    const nombre = getString(formData, "nombre"). recorte();
-    const telefono = getString(formData, "telefono"). recorte();
-    grupo const  = getString(formData, "grupo"). recorte();
-    const fecha = getString(formData, "fecha"). recorte();
+        formData, "matricula").trim();  
+    const nombre = getString(formData, "nombre").trim();
+    const telefono = getString(formData, "telefono").trim();
+    const grupo = getString(formData, "grupo").trim();
+    const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
         import("./tipos.js").
                 Alumno} */
     const modelo = {
- matricular, 
+      matricula, 
       nombre,
- telefono,
+      telefono,
       grupo,
       fecha
     };
-    esperar daoAlumno.
+    await daoAlumno.
       doc(id).
       set(modelo);
     muestraAlumnos();
-  } captura (e) {
+  } catch (e) {
     muestraError(e);
   }
 }
 
-eliminación de la función asincrónica () {
-  probar {
-    if (confirmar("Confirmar la" +
-      "Eliminación")) {
-      esperar daoAlumno.
+async function elimina() {
+  try {
+    if (confirm("Confirmar la " +
+      "eliminación")) {
+      await daoAlumno.
         doc(id).
-        Eliminar();
+        delete();
       muestraAlumnos();
     }
-  } captura (e) {
+  } catch (e) {
     muestraError(e);
   }
 }
