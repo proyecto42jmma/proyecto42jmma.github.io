@@ -1,16 +1,16 @@
 import {
   getAuth,
   getFirestore
-} from ".. /lib/fabrica.js";
+} from "../lib/fabrica.js";
 import {
   getString,
   muestraError
-} de ".. /lib/util.js";
-importación {
-  muestraAlumnos
-} de "./navegacion.js";
+} from "../lib/util.js";
 import {
-  TieneRol
+  muestraAlumnos
+} from "./navegacion.js";
+import {
+  tieneRol
 } from "./seguridad.js";
 
 const daoAlumno =
