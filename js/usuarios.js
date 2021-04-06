@@ -151,7 +151,7 @@ export async function
       getForánea(formData,
         "alumnoId");
     const rolIds =
-      formData.getAll("rolIds");
+      fromData.getAll("rolIds");
     await daoUsuario.
       doc(id).
       set({
@@ -159,7 +159,7 @@ export async function
         rolIds
       });
     const avatar =
-      formData.get("avatar");
+      fromData.get("avatar");
     await subeStorage(id, avatar);
     muestraUsuarios();
   } catch (e) {
