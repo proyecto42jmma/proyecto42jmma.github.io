@@ -1,13 +1,12 @@
-clase MiFooter
-  extiende HTMLElement {
+class MiFooter
+  extends HTMLElement {
   connectedCallback() {
-    esto. innerHTML = /* html */
-      '<p>
- &copiar; 2021
-        Ricardo Armando Machorro Reyes.
- </p>';
+    this.innerHTML = /* html */
+      `<p>
+        &copy; 2021
+      </p>`;
   }
 }
 
-customElements. definir(
-  "mi-pie de página", MiFooter);
+customElements.define(
+  "mi-footer", MiFooter);
