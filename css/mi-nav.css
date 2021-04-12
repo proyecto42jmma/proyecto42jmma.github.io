@@ -1,19 +1,19 @@
 mi-nav {
-  pantalla: bloque;
-  color de fondo:
+  display: block;
+  background-color:
     var(--colorMiNav);
 }
 
 mi-nav ul {
-  pantalla: flexión;
-  justificación-contenido: centro;
-  align-items: centro;
-  flex-flow: envoltura;
-  estilo de lista: ninguno;
-  relleno: 0;
-  margen: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 mi-nav ul li {
-  margen: 0,5rem ;
+  margin: 0.5rem;
 }
