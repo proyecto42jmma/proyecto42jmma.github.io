@@ -1,12 +1,12 @@
-clase MiProgeso
-  extiende HTMLElement {
+class MiProgeso
+  extends HTMLElement {
   connectedCallback() {
-    esto. innerHTML = /* html */
-      '<progress max="100">
- Cargando...
- </progreso>';
+    this.innerHTML = /* html */
+      `<progress max="100">
+        Cargando…
+      </progress>`;
   }
 }
 
-customElements. definir(
+customElements.define(
   "mi-progreso", MiProgeso);
