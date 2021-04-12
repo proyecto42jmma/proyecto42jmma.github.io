@@ -1,61 +1,61 @@
-. lista,
-. controles {
-  tipo de estilo de lista: ninguno;
-  relleno: 0;
+.lista,
+.checks {
+  list-style-type: none;
+  padding: 0;
 }
 
-. lista {
-  margen: 1rem  0;
+.lista {
+  margin: 1rem 0;
 }
 
-. controles {
-  margen: 0;
+.checks {
+  margin: 0;
 }
 
-. fila {
-  pantalla: bloque;
-  relleno: 1rem ;
+.fila {
+  display: block;
+  padding: 1rem;
 }
 
-a. fila:activo {
-  color de fondo:
+a.fila:active {
+  background-color:
     var(--col-active);
 }
 
-.  {
-  pantalla: bloque;
-  tamaño de la fuente: 1rem ;
+.primario {
+  display: block;
+  font-size: 1rem;
 }
 
-. secundario {
-  pantalla: bloque;
-  tamaño de la fuente: 0,75rem ;
+.secundario {
+  display: block;
+  font-size: 0.75rem;
 }
 
-etiqueta. fila,
-. fila. conImagen {
-  pantalla: flexión;
-  brecha: 1rem ;
+label.fila,
+.fila.conImagen {
+  display: flex;
+  gap: 1rem;
 }
 
-. fila. conImagen {
-  align-items: inicial;
+.fila.conImagen {
+  align-items: initial;
 }
 
-. fila . texto {
-  pantalla: bloque;
+.fila .texto {
+  display: block;
 }
 
-. fila . marco {
-  pantalla: bloque;
+.fila .marco {
+  display: block;
   width: 30%;
 }
 
-. marco img {
-  ancho: 100% ;
+.marco img {
+  width: 100%;
 }
 
-. vacio {
-  tamaño de la fuente: 0,75rem ;
-  texto-alinear: centro;
+.vacio {
+  font-size: 0.75rem;
+  text-align: center;
 }
