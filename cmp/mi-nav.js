@@ -1,59 +1,59 @@
-importación {
-  CargaRoles
-} de ".. /js/seguridad.js";
-importación {
+import {
+  cargaRoles
+} from "../js/seguridad.js";
+import {
   getAuth
-} de ".. /lib/fabrica.js";
-importación {
+} from "../lib/fabrica.js";
+import {
   muestraError
-} de ".. /lib/util.js";
+} from "../lib/util.js";
 
-clase MiNav extiende HTMLElement {
+class MiNav extends HTMLElement {
   connectedCallback() {
-    esto. innerHTML = /* html */
-      '<ul>
+    this.innerHTML = /* html */
+      `<ul>
         <li>
           <a href="index.html">
             Sesión</a>
         </li>
- </ul>';
-    esto. ul =
-      esto. querySelector("ul");
-    getAuth(). onAuthStateChanged(
-      usuario => esto.
+      </ul>`;
+    this.ul =
+      this.querySelector("ul");
+    getAuth().onAuthStateChanged(
+      usuario => this.
         cambiaUsuario(usuario),
       muestraError);
   }
 
   /**
-   * @param {importación(
- ".. /lib/tiposFire.js"). Usuario}
+   * @param {import(
+      "../lib/tiposFire.js").User}
       usu */
-  async cambiaUsuario(usu ) {
-    if (usu && usu.  correo electrónico) {
-      dejar html = "";
-      papeles de const =
-        esperar cargaRoles(
-          usu. correo electrónico);
-     if (roles. tiene("Cliente")) {
+  async cambiaUsuario(usu) {
+    if (usu && usu.email) {
+      let html = "";
+      const roles =
+        await cargaRoles(
+          usu.email);
+      if (roles.has("Cliente")) {
         html += /* html */
-          '<li>
+          `<li>
             <a href=
               "chat.html">Chat</a>
- </li>';
-      }
-      if (roles. tiene(
+          </li>`;
+      } 
+      if (roles.has(
         "Administrador")) {
         html += /* html */
-          '<li>
+          `<li>
             <a href=
 "alumnos.html">Alumnos</a>
- </li>';
+          </li>`;
       }
-      esto. ul. innerHTML += html;
+      this.ul.innerHTML += html;
     }
   }
 }
 
-customElements. definir(
+customElements.define(
   "mi-nav", MiNav);
