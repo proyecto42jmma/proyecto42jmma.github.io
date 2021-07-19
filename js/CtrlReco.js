@@ -1,7 +1,3 @@
-import {
-  msg
-} from "../lib/movil.js";
-import "./config.js";
 
 function recomienda() {
       const figs = document.
