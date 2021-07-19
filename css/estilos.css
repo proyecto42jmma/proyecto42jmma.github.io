@@ -1,0 +1,32 @@
+html {
+  --colTxt: black;
+  --colBk: white;
+  --colPrim: white;
+  --colPrimBk: #9c27b0;
+  --colCnt: white;
+  --colCntBk: #6a0080;
+  --colCntBkHv: #6a0080dd;
+  --colCntBkFc: #6a0080bb;
+  --colCntBkAc: #d05ce3;
+  --colCntSh: #00000055;
+  --colNv: white;
+  --colNvBk: #9c27b0;
+  --colNvBkAc: #d05ce3;
+  --flAb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpolygon stroke='gray' fill-rule='evenodd' points='7 10 12 15 17 10'%3E%3C/polygon%3E%3C/svg%3E");
+  --flArr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpolygon stroke='%236a0080' fill-rule='evenodd' points='7 15 12 10 17 15'%3E%3C/polygon%3E%3C/svg%3E%0A");
+  --colTxt: black;
+  --colBk: white;
+  --colCmp: gray;
+  --colCmpFc: #6a0080;
+  --colCmpEr: #b00020;
+  --colCmpBk: #F5F5F5;
+  --colCmpBkHv: #EEEEEE;
+  --colCmpBkFc: #E0E0E0;
+  --colCmpOp: white;
+  --colCmpOpBk: #9c27b0;
+}
+
+body {
+  margin:
+    4.5rem 1rem 5rem 1rem;
+}
