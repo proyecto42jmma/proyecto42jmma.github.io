@@ -1,4 +1,4 @@
-@import "../lib/css/principal.css";
+import "../lib/css/principal.css";
 @import "../lib/css/ripple.css";
 import "../lib/css/botones.css";
 import "../lib/css/cmp-din.css";
