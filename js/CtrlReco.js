@@ -1,4 +1,3 @@
-
 function recomienda() {
       const figs = document.
         querySelectorAll(
