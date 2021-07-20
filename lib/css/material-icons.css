@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Soporte para todos los
+   * navegadores basados en
+   * WebKit. */
+  -webkit-font-smoothing:
+    antialiased;
+  /* Soporte para Safari y
+   * Chrome. */
+  text-rendering:
+    optimizeLegibility;
+
+  /* Soporte para Firefox. */
+  -moz-osx-font-smoothing:
+    grayscale;
+
+  /* Soporte para IE. */
+  font-feature-settings: 'liga';
+}
