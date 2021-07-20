@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+      content="width=device-width,
+              initial-scale=1.0">
+  <title>Autenticación</title>
+</head>
+<body>
+  <h1>Autenticación</h1>
+  <form name="sesión">
+    <output name="cue">
+    </output>
+    <button type="button"
+        name="terminar">
+      Terminar sesión
+    </button>
+  </form>
+  <form name="login">
+    <p>
+      <label>
+        Cue
+        <input name="cue">
+      </label>
+    </p>
+    <p>
+      <label>
+        Match
+        <input type="password"
+            name="match">
+      </label>
+    </p>
+    <p>
+      <label>
+        Soy un humano
+        <input name="humano"
+            type="range" value="0"
+            min="0" max="1">
+      </label>
+    </p>
+    <p>
+      <button>
+        Iniciar sesión
+      </button>
+    </p>
+  </form>
+  <footer>
+    <p>
+      &copy; 2021
+      Gilberto Pacheco Gallegos
+    </p>
+  </footer>
+  <script type="module"
+      src="js/CtrlSesion.js">
+      </script>
+</body>
+</html>
