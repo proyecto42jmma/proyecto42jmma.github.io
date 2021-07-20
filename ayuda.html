@@ -5,18 +5,13 @@
   <meta name="viewport"
       content="width=device-width,
               initial-scale=1.0">
-  <title>
-    Ayuda - Ejemplo de PWA
-  </title>
-  <meta name="theme-color"
-      content="#81d4f4">
-  <link rel="icon" sizes="32x32"
-      href="favicon.ico">
-  <link rel="manifest"
-      href="site.webmanifest">
-  <link rel="stylesheet"
-      href="css/estilos.css">
-<body>
+  <title> PWA </title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body>
   <h1>Ayuda</h1>
   <p>Ejemplo de PWA</p>
   <cmp-din>
@@ -30,11 +25,30 @@
     &copy; 2021
   </p>
   <mi-nav></mi-nav>
-  <script type="module">
-    import "./js/config.js";
-    import { USER_AGENT }
-      from "./lib/movil.js";
-    agent.value = USER_AGENT;
+ <script>
+    class MiNav
+      extends HTMLElement {
+      connectedCallback() {
+        this.innerHTML =
+          /* html */
+          `<a href="index.html">
+        <span
+          class="material-icons">
+          home
+        </span>
+        Inicio
+      </a>
+      <a href="ayuda.html">
+        <span
+          class="material-icons">
+          help
+        </span>
+        Ayuda
+      </a>`;
+      }
+    }
+    customElements.define(
+      "mi-nav", MiNav);
   </script>
 </body>
 </html>
