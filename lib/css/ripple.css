@@ -1,0 +1,9 @@
+@keyframes ripple {
+  from {
+    background-size: 100%;
+  }
+
+  to {
+    background-size: 15000%;
+  }
+}
